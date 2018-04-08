@@ -1288,7 +1288,7 @@ monocle(Monitor *m)
 		if (c->bw) {
 			c->oldbw = c->bw;
 			c->bw = 0;
-			resizeclient(c, m->wx, m->wy, m->ww, m->wh);
+			resize(c, m->wx, m->wy, m->ww, m->wh, False);
 		}
 	}
 }
