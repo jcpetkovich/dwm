@@ -12,7 +12,7 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
+static const char col_gray4[]       = "#D84D39";
 static const char col_cyan[]        = "#005577";
 static const char *colors[][4]      = {
 	/*               fg         bg         border     float */
@@ -104,7 +104,15 @@ static const char *dmenu_screensaver[] = {"dmenu", "screensaver", NULL};
 static const char *dmenu_shistory[] = {"dmenu", "shistory", NULL};
 static const char *dmenu_connect[] = {"dmenu", "connect", NULL};
 
+static const char *volumeupcmd[] = { "volumeup", NULL };
+static const char *volumedowncmd[] = { "volumedown", NULL };
+static const char *togglemutecmd[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *musicnextcmd[] = { "mpc", "next", NULL };
+static const char *toggleplaycmd[] = { "mpc", "toggle", NULL };
+static const char *screenshotcmd[] = { "scrot", NULL };
+
 #include "movestack.c"
+#include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
@@ -112,7 +120,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = statuscmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = logoutcmd } },
 
 	/* change focus */
@@ -154,7 +161,13 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[10]} },
 
 	/* HYPERKEYS */
+	{ 0, XF86XK_AudioLowerVolume,              spawn,          {.v = volumedowncmd} },
+	{ 0, XF86XK_AudioRaiseVolume,              spawn,          {.v = volumeupcmd} },
+	{ 0, XF86XK_AudioMute,                     spawn,          {.v = togglemutecmd} },
+	{ 0, XF86XK_AudioNext,                     spawn,          {.v = musicnextcmd} },
+	{ 0, XF86XK_AudioPlay,                     spawn,          {.v = toggleplaycmd} },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          {.v = dmenu_pass} },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshotcmd} },
 	/* { MODKEY|ShiftMask,             XK_space,  spawn,          {.v = dmenu_sys} }, */
 	/* { MODKEY,                       XK_space,  spawn,          {.v = dmenu_menu} }, */
 	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = dmenu_monitor} },
