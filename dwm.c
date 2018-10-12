@@ -2409,7 +2409,7 @@ warp(const Client *c)
 	    (c->mon->topbar && !y))
 		return;
 
-	XWarpPointer(dpy, None, c->win, 0, 0, 0, 0, c->w / 2, c->h / 2);
+	XWarpPointer(dpy, None, c->win, 0, 0, 0, 0, c->w - mwarppx, c->h - mwarppx);
 }
 
 Client *

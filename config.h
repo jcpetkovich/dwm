@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int gappx     = 0;
 static const unsigned int borderpx  = 10;        /* border pixel of windows */
+static const unsigned int mwarppx   = 10;        /* mouse warp pixel shift */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int minwsz    = 20;       /* Minimal heigt of a client for smfact */
 static const int showbar            = 0;        /* 0 means no bar */
@@ -12,8 +13,8 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#D84D39";
-static const char col_cyan[]        = "#005577";
+static const char col_gray4[]       = "#7c75e5";
+static const char col_cyan[]        = "#147b95";
 static const char *colors[][4]      = {
 	/*               fg         bg         border     float */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2, col_gray2 },
