@@ -13,8 +13,8 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#7c75e5";
-static const char col_cyan[]        = "#147b95";
+static const char col_gray4[]       = "#fb4c86";
+static const char col_cyan[]        = "#b86ecd";
 static const char *colors[][4]      = {
 	/*               fg         bg         border     float */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2, col_gray2 },
@@ -31,7 +31,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     iscentered     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            0,             1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,             0,           -1 },
+	/* { "Firefox",  NULL,       NULL,       1 << 8,       0,             0,           -1 }, */
 };
 
 /* layout(s) */
